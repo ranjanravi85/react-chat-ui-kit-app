@@ -2,13 +2,13 @@ CometChat Kitchen Sink Sample App (built using **CometChat UI Kit**) is a fully 
 
 ## Table of Contents
 
-1. [Installation](installation)
+1. [Installation](#installation)
 
-2. [Running the sample app](running-the-sample-app)
+2. [Running the sample app](#running-the-sample-app)
 
-3. [Learn more about UI-Kit](learn-more-about-ui-kit)
+3. [Learn more about UI-Kit](#learn-more-about-ui-kit)
 
-4. [Troubleshooting](troubleshooting)
+4. [Troubleshooting](#troubleshooting)
 
 
 # Installation
