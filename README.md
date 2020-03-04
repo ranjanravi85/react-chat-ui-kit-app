@@ -28,11 +28,14 @@ To Run to sample app you have to do the following changes by Adding **APP_ID**, 
 
    -  Select demo users or enter the **UID** at the time of login once the app is launched.
 
-Build and run the Sample App.
+## Build and run the Sample App.
+   - Go to the project folder.
+   - Install node modules using `npm install`.
+   - Run the project using `npm start`.
 
 # Learn more about UI-Kit
 
-Learn more about how to integrate [UI Kit](https://github.com/cometchat-pro-samples/react-uikit) inside your app.
+Learn more about how to integrate [UI Kit](https://github.com/cometchat-pro/react-chat-ui-kit) inside your app.
 
 
 # Troubleshooting
