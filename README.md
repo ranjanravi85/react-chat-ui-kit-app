@@ -1,19 +1,19 @@
-CometChat Kitchen Sink Sample App (built using **CometChat UIKit**) is a fully functional messaging app capable of **one-on-one** (private) and **group** messaging along with recent conversations. This sample app enables users to send **text** and **multimedia messages like  images, documents.**
+CometChat Kitchen Sink Sample App (built using **CometChat UI Kit**) is a fully functional messaging app capable of **one-on-one** (private) and **group** messaging along with recent conversations. This sample app enables users to send **text** and **multimedia messages like  images, documents.**
 
 ## Table of Contents
 
-1. [Installation](#installation)
+1. [Installation](installation)
 
-2. [Running the sample app](rRunning-the-sample-app)
+2. [Running the sample app](running-the-sample-app)
 
-3. [Learn more about UI-Kit](#learn-more-about-ui-kit)
+3. [Learn more about UI-Kit](learn-more-about-ui-kit)
 
-4. [Troubleshooting](#troubleshooting)
+4. [Troubleshooting](troubleshooting)
 
 
 # Installation
 
-1. Simply clone the project from [react-chat-ui-kit-app](https://github.com/cometchat-pro-samples/react-uikit-sampleapp.git) repository. After cloning the repository:
+1. Simply clone the project. After cloning the repository:
 
 
 # Running the sample app
@@ -24,14 +24,22 @@ To Run to sample app you have to do the following changes by Adding **APP_ID**, 
 
    - Open the project.
 
-   - Modify `APP_ID` and `API_KEY` and `REGION` with your own (update the `consts.js` file) .
+   - Modify `APP_ID` and `API_KEY` and `REGION` with your own (update the `src/consts.js` file) .
 
    -  Select demo users or enter the **UID** at the time of login once the app is launched.
 
-## Build and run the Sample App.
+# Build and run the Sample App.
    - Go to the project folder.
-   - Install node modules using `npm install`.
-   - Run the project using `npm start`.
+   - Install node modules using 
+   ```shell
+   npm install
+   
+   ```
+   - Run the project using 
+ ```shell    
+ npm start
+   ``` 
+  
 
 # Learn more about UI-Kit
 
