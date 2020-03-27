@@ -48,7 +48,7 @@ class ChatWindow extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-if(this.state.type !== 'group')
+
     if (prevState.inputMessageList !== this.state.inputMessageList) {
       this.setState({ messageList: [...this.state.messageList, ...this.state.inputMessageList] }, () => {
         this.scrollToBottom();
@@ -97,29 +97,29 @@ if(this.state.type !== 'group')
 
   messageUpdated = (message, isReceipt) => {
     if (isReceipt) {
-      let messageList=[]
+      let messageList = []
       if (message.receiptType === "delivery") {
-        messageList=this.state.messageList.map(stateMessage => {
+        messageList = this.state.messageList.map(stateMessage => {
           if (message.messageId === stateMessage.id) {
-              stateMessage.deliveredAt = message.deliveredAt;
+            stateMessage.deliveredAt = message.deliveredAt;
           }
-          
+
           return stateMessage;
         });
-        this.setState({messageList});
-      }else {
+        this.setState({ messageList });
+      } else {
         if (message.receiptType === "read") {
-        messageList=this.state.messageList.map(stateMessage => {
-          // if (message.messageId === stateMessage.id) {
-            if(!stateMessage.readAt)  {
+          messageList = this.state.messageList.map(stateMessage => {
+            // if (message.messageId === stateMessage.id) {
+            if (!stateMessage.readAt) {
               stateMessage.readAt = message.readAt;
-            }            
-          // }
-          
-          return stateMessage;
-        });
-        this.setState({messageList});
-      }
+            }
+            // }
+
+            return stateMessage;
+          });
+          this.setState({ messageList });
+        }
       }
     }
     else {
@@ -134,10 +134,10 @@ if(this.state.type !== 'group')
     this.cometChatManager.isCometChatUserLogedIn().then(
       user => {
         this.cometChatManager.fetchPreviousMessages().then(
-          (messageList) => {            
-            messageList.map(message=>{
-              if(message.getSender().uid!==user.uid){
-                CometChat.markAsRead(message.id, message.getSender().getUid(), 'user');    
+          (messageList) => {
+            messageList.map(message => {
+              if (message.getSender().uid !== user.uid) {
+                CometChat.markAsRead(message.id, message.getSender().getUid(), 'user');
               }
               return true
             });
@@ -216,7 +216,7 @@ if(this.state.type !== 'group')
 
 
 export default ChatWindow;
-export const chatWindow=ChatWindow;
+export const chatWindow = ChatWindow;
 
 ChatWindow.defaultProps = {
 

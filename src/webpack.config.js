@@ -2,12 +2,15 @@ var path = require('path');
 
 module.exports = {
     mode: 'production',
-    entry: path.resolve(__dirname, 'cometchat.js'),
+    entry: path.resolve(__dirname, './lib/CometChat/index.js'),
     output: {
         path: path.resolve('./lib'),
         filename: 'index.js',
         library: '',
         libraryTarget: 'commonjs'
+    },
+    externals: {
+        CometChat: 'CometChat'
     },
     module: {
         rules: [
@@ -35,7 +38,14 @@ module.exports = {
             },
             {
                 test: /\.svg$/,
-                loader: 'svg-inline-loader'
+                use: [
+                    {
+                        loader: 'svg-url-loader',
+                        options: {
+                            limit: 10000,
+                        },
+                    },
+                ],
             },
             {
                 test: /\.(png|jpe?g|gif)$/i,
