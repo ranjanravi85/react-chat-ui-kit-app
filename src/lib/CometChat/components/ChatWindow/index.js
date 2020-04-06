@@ -12,6 +12,7 @@ import SenderVideoBubble from "../SenderVideoBubble"
 import ReceiverVideoBubble from "../ReceiverVideoBubble"
 import { CometChatManager } from "./controller";
 import { CometChat } from "@cometchat-pro/chat";
+import CallMessage from "../CallMessage";
 
 
 
@@ -173,35 +174,48 @@ class ChatWindow extends React.Component {
 
   }
   handleSenderMessages = (message) => {
-    switch (message.category, message.type) {
-      case ("message" && "text"):
-        return <SenderMessageBubble message={message} ></SenderMessageBubble>;
-      case ("message" && "image"):
-        return <SenderImageBubble message={message} ></SenderImageBubble>;
-      case ("message" && "file"):
-        return <SenderFileBubble message={message} ></SenderFileBubble>;
-      case ("message" && "audio"):
-        return <SenderAudioBubble message={message} ></SenderAudioBubble>;
-      case ("message" && "video"):
-        return <SenderVideoBubble message={message} ></SenderVideoBubble>;
+    switch (message.category) {
+      case ("message"): {
+        switch (message.type) {
+          case ("text"):
+            return <SenderMessageBubble message={message} ></SenderMessageBubble>;
+          case ("image"):
+            return <SenderImageBubble message={message} ></SenderImageBubble>;
+          case ("file"):
+            return <SenderFileBubble message={message} ></SenderFileBubble>;
+          case ("audio"):
+            return <SenderAudioBubble message={message} ></SenderAudioBubble>;
+          case ("video"):
+            return <SenderVideoBubble message={message} ></SenderVideoBubble>;
+        }
+      } case ("call"): {
+
+        return <CallMessage message={message} ></CallMessage>;
+      }
       default:
         return null;
     }
   }
   handlereceiverMessages = (message) => {
-    switch (message.category, message.type) {
-      case ("message" && "text"):
-        return <ReceiverMessageBubble message={message}></ReceiverMessageBubble>
-      case ("message" && "image"):
-        return <ReceiverImageBubble message={message} ></ReceiverImageBubble>;
-      case ("message" && "file"):
-        return <ReceiverFileBubble message={message} ></ReceiverFileBubble>;
-      case ("message" && "audio"):
-        return <ReceiverAudioBubble message={message} ></ReceiverAudioBubble>;
-      case ("message" && "video"):
-        return <ReceiverVideoBubble message={message} ></ReceiverVideoBubble>;
-      default:
-        return null;
+    switch (message.category) {
+      case ("message"): {
+        switch (message.category, message.type) {
+          case ("message" && "text"):
+            return <ReceiverMessageBubble message={message}></ReceiverMessageBubble>
+          case ("message" && "image"):
+            return <ReceiverImageBubble message={message} ></ReceiverImageBubble>;
+          case ("message" && "file"):
+            return <ReceiverFileBubble message={message} ></ReceiverFileBubble>;
+          case ("message" && "audio"):
+            return <ReceiverAudioBubble message={message} ></ReceiverAudioBubble>;
+          case ("message" && "video"):
+            return <ReceiverVideoBubble message={message} ></ReceiverVideoBubble>;
+          default:
+            return null;
+        }
+      } case ("call"): {
+        return <CallMessage message={message} ></CallMessage>;
+      }
     }
   }
   render() {
